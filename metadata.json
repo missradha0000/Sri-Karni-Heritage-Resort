@@ -1,0 +1,6 @@
+{
+  "name": "Sri Karni Heritage Resort",
+  "description": "A grand Rajasthani sandstone heritage resort and royal destination wedding estate on NH-11 in Sri Dungargarh, Bikaner, offering luxury suites, illuminated marriage gardens, and regal hospitality.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
