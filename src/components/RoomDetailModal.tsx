@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X, Check, MessageCircle, Calendar, Users, Sparkles } from 'lucide-react';
-import { RoomSuite, buildWhatsAppUrl, RESORT_CONTACT } from '../data/resortData';
+import { RoomSuite, buildWhatsAppUrl, RESORT_CONTACT, RESORT_IMAGES } from '../data/resortData';
 import { ResilientImage } from './ResilientImage';
 
 interface RoomDetailModalProps {
@@ -78,13 +78,22 @@ Please confirm availability and royal tariff details.`;
       <div className="relative w-full max-w-4xl bg-[#FAF6F0] border border-[#D8C7B2] rounded-xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
         {/* Top Modal Header */}
         <div className="flex items-center justify-between px-6 py-4 bg-[#917C58] text-[#FAF6F0] border-b border-[#7D6949]">
-          <div>
-            <p className="text-xs text-[#FFF3D1] tracking-wide">
-              {room.categoryLabel} · {room.hindiTitle}
-            </p>
-            <h2 id="modal-suite-title" className="font-serif-royal text-2xl sm:text-3xl font-semibold text-[#FAF6F0]">
-              {room.name}
-            </h2>
+          <div className="flex items-center gap-3.5">
+            <div className="w-11 h-11 rounded-lg bg-[#FAF6F0] border border-[#DECBB3] overflow-hidden flex items-center justify-center shrink-0 shadow-sm">
+              <img
+                src={RESORT_IMAGES.logo}
+                alt="Sri Karni Heritage Resort Royal Crest"
+                className="w-full h-full object-contain scale-[1.35] mix-blend-multiply"
+              />
+            </div>
+            <div>
+              <p className="text-xs text-[#FFF3D1] tracking-wide">
+                {room.categoryLabel} · {room.hindiTitle}
+              </p>
+              <h2 id="modal-suite-title" className="font-serif-royal text-2xl sm:text-3xl font-semibold text-[#FAF6F0]">
+                {room.name}
+              </h2>
+            </div>
           </div>
           <button
             type="button"

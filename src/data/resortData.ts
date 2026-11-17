@@ -57,6 +57,7 @@ export interface Testimonial {
 }
 
 export const RESORT_IMAGES = {
+  logo: '/assets/aistudio/WhatsApp_Image_2026-11-17_at_8.29.55_AM_c37fb715.jpg',
   heroPalace: '/src/assets/images/hero_palace_facade_1794853203385.jpg',
   maharajaSuite: '/src/assets/images/suite_maharaja_chambers_1794853205582.jpg',
   courtyardHaveli: '/src/assets/images/suite_courtyard_haveli_1794853208139.jpg',

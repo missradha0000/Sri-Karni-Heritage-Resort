@@ -83,14 +83,21 @@ Please share available rooms and package details.`;
 
   return (
     <div className="min-h-screen flex flex-col bg-[#FAF6F0] text-[#3D3122]">
-      {/* 3-Zone Top Bar Contract: [Brand title, one line] — [5 single-line nav links] — [1 primary action] */}
-      <header className="sticky top-0 z-40 h-16 flex items-center justify-between gap-8 px-4 sm:px-8 lg:px-12 bg-[#FAF6F0]/95 backdrop-blur-md border-b border-[#D5C5AE]">
-        {/* Zone 1: Single text element wordmark */}
+      {/* 3-Zone Top Bar Contract: [Brand logo + title, one line] — [5 single-line nav links] — [1 primary action] */}
+      <header className="sticky top-0 z-40 h-20 flex items-center justify-between gap-8 px-4 sm:px-8 lg:px-12 bg-[#FAF6F0]/95 backdrop-blur-md border-b border-[#D5C5AE] shadow-xs">
+        {/* Zone 1: Single brand anchor with Royal Crest Logo & Wordmark */}
         <a
           href="#"
-          className="font-serif-royal text-xl sm:text-2xl font-bold tracking-tight text-[#3D3122] whitespace-nowrap shrink-0"
+          className="flex items-center gap-3 font-serif-royal text-xl sm:text-2xl font-bold tracking-tight text-[#3D3122] whitespace-nowrap shrink-0 group"
         >
-          Sri Karni Heritage
+          <span className="w-13 h-13 sm:w-15 sm:h-15 overflow-hidden flex items-center justify-center shrink-0">
+            <img
+              src={RESORT_IMAGES.logo}
+              alt="Sri Karni Heritage Resort Royal Crest"
+              className="w-full h-full object-contain scale-[1.42] mix-blend-multiply transition-transform duration-300 group-hover:scale-[1.48]"
+            />
+          </span>
+          <span>Sri Karni Heritage</span>
         </a>
 
         {/* Zone 2: 5 clean single-line text navigation links */}
@@ -914,21 +921,46 @@ Please share available rooms and package details.`;
         </section>
       </main>
 
-      {/* QUIET HERITAGE FOOTER (#917C58) */}
-      <footer className="bg-[#917C58] text-[#F5ECE0] border-t border-[#7D6949] py-14">
+      {/* QUIET HERITAGE FOOTER (#917C58) WITH GRAND ROYAL CREST LOGO */}
+      <footer className="bg-[#917C58] text-[#F5ECE0] border-t border-[#7D6949] pt-16 pb-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Large Featured Royal Crest Medallion at Top of Footer */}
+          <div className="flex flex-col items-center text-center pb-12 mb-12 border-b border-[#A8936F]">
+            <a
+              href="#"
+              aria-label="Sri Karni Heritage Resort Home"
+              className="group relative w-44 h-44 sm:w-52 sm:h-52 rounded-2xl bg-[#FAF6F0] border-2 border-[#FFF3D1] shadow-xl p-3 flex items-center justify-center overflow-hidden mb-5"
+            >
+              <div className="absolute inset-1.5 rounded-xl border border-[#917C58]/30 pointer-events-none" />
+              <img
+                src={RESORT_IMAGES.logo}
+                alt="Sri Karni Heritage Resort Official Royal Crest Logo"
+                className="w-full h-full object-contain scale-[1.35] mix-blend-multiply transition-transform duration-500 group-hover:scale-[1.42]"
+              />
+            </a>
+            <p className="font-serif-royal text-3xl sm:text-4xl font-bold text-[#FAF6F0] tracking-wide">
+              {RESORT_CONTACT.name}
+            </p>
+            <p className="text-xs sm:text-sm text-[#FFF3D1] mt-1.5 font-medium">{RESORT_CONTACT.hindiTagline}</p>
+            <p className="text-xs text-[#F5ECE0]/90 max-w-md mt-2 leading-relaxed">
+              {RESORT_CONTACT.addressLine1}, {RESORT_CONTACT.addressLine2}
+            </p>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-10 border-b border-[#A8936F]">
             <div className="md:col-span-5 space-y-3">
-              <p className="font-serif-royal text-2xl font-bold text-[#FAF6F0]">{RESORT_CONTACT.name}</p>
-              <p className="text-xs text-[#FFF3D1]">{RESORT_CONTACT.hindiTagline}</p>
+              <p className="font-semibold text-[#FAF6F0] text-xs uppercase tracking-wider">
+                The Royal Sandstone Sanctuary
+              </p>
               <p className="text-xs text-[#F5ECE0]/90 max-w-sm leading-relaxed">
-                {RESORT_CONTACT.addressLine1}, {RESORT_CONTACT.addressLine2}
+                An architectural tribute to Bikaner’s royal heritage on National Highway 11—offering 125 luxury rooms &
+                suites, grand illuminated marriage lawns, and pure Marwari vegetarian dining.
               </p>
             </div>
 
             <div className="md:col-span-4 space-y-2 text-xs">
               <p className="font-semibold text-[#FAF6F0] uppercase tracking-wider mb-3">Estate Navigation</p>
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-2 gap-2.5">
                 <a href="#suites" className="hover:text-white transition-colors">
                   Suites & Rooms
                 </a>
