@@ -65,28 +65,28 @@ Please share auspicious date availability, venue brochure, and a customized roya
   };
 
   return (
-    <section id="weddings" className="py-20 sm:py-28 bg-[#231710] text-[#FAF6F0] border-y border-[#3D291D]">
+    <section id="weddings" className="py-20 sm:py-28 bg-[#917C58] text-[#FAF6F0] border-y border-[#7D6949]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Editorial Header */}
         <div className="max-w-3xl mb-14">
-          <p className="text-xs sm:text-sm tracking-wide text-[#D4AF37] mb-3">
+          <p className="text-xs sm:text-sm tracking-wide text-[#FFF3D1] font-medium mb-3">
             Royal Marriages & Grand Celebrations · शाही विवाह एवं उत्सव
           </p>
           <h2
             className="font-serif-royal text-3xl sm:text-5xl font-semibold text-[#FAF6F0] leading-[1.12]"
             style={{ textWrap: 'balance' }}
           >
-            A Illuminated Sandstone Palace Built for Grand Marwari & Destination Weddings
+            An Illuminated Sandstone Palace Built for Grand Marwari & Destination Weddings
           </h2>
-          <p className="mt-4 text-base text-[#D8C9B8] leading-relaxed">
+          <p className="mt-4 text-base text-[#F7EFE4] leading-relaxed">
             From 1,600-guest varmala processions on the manicured Surya Bagh Lawns to full-estate buyouts spanning up to{' '}
-            <span className="font-mono-tabular text-[#FAF6F0] font-medium">125</span> private rooms and suites, Sri
+            <span className="font-mono-tabular text-white font-semibold">125</span> private rooms and suites, Sri
             Karni Heritage Resort transforms family milestones into regal history.
           </p>
         </div>
 
         {/* Venue Selector Tabs (Interactive Segmented Control) */}
-        <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#180F0A] rounded-xl border border-[#3D291D] mb-10 w-fit">
+        <div className="flex flex-wrap items-center gap-2 p-1.5 bg-[#7A6747] rounded-xl border border-[#A8936F] mb-10 w-fit">
           {EVENT_VENUES.map((venue) => {
             const isActive = venue.id === selectedVenueId;
             return (
@@ -96,8 +96,8 @@ Please share auspicious date availability, venue brochure, and a customized roya
                 onClick={() => setSelectedVenueId(venue.id)}
                 className={`px-4 py-2.5 text-xs sm:text-sm font-medium rounded-lg transition-colors cursor-pointer whitespace-nowrap shrink-0 ${
                   isActive
-                    ? 'bg-[#B8860B] text-[#FAF6F0] shadow-sm'
-                    : 'text-[#C9B8A6] hover:text-[#FAF6F0] hover:bg-white/5'
+                    ? 'bg-[#FAF6F0] text-[#4A3C2A] shadow-sm font-semibold'
+                    : 'text-[#F5ECE0] hover:text-white hover:bg-white/10'
                 }`}
               >
                 {venue.indexNumber}. {venue.name}
@@ -109,17 +109,17 @@ Please share auspicious date availability, venue brochure, and a customized roya
         {/* 2-Column Split: Active Venue Showcase + Interactive Wedding & Event Inquiry Configurator */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
           {/* Left Column: Selected Venue Deep Dive */}
-          <div className="lg:col-span-7 flex flex-col justify-between bg-[#2C1D14] rounded-xl border border-[#422D1F] overflow-hidden">
+          <div className="lg:col-span-7 flex flex-col justify-between bg-[#7D6949] rounded-xl border border-[#A8936F] overflow-hidden">
             <div>
-              <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#180F0A]">
+              <div className="relative aspect-[16/9] w-full overflow-hidden bg-[#6B593D]">
                 <ResilientImage
                   src={selectedVenue.image}
                   alt={selectedVenue.name}
                   className="w-full h-full object-cover transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#180F0A]/90 via-[#180F0A]/25 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#52432C]/90 via-[#52432C]/25 to-transparent" />
                 <div className="absolute bottom-4 left-6 right-6">
-                  <p className="text-xs text-[#E6C674] mb-1">
+                  <p className="text-xs text-[#FFF3D1] mb-1">
                     {selectedVenue.hindiName} · {selectedVenue.setting}
                   </p>
                   <h3 className="font-serif-royal text-2xl sm:text-3xl font-semibold text-[#FAF6F0]">
@@ -130,39 +130,39 @@ Please share auspicious date availability, venue brochure, and a customized roya
 
               <div className="p-6 sm:p-8 space-y-6">
                 {/* Unboxed Venue Capacity Metadata */}
-                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs sm:text-sm text-[#D4AF37] border-b border-[#422D1F] pb-4">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs sm:text-sm text-[#FFF3D1] border-b border-[#9E8966] pb-4">
                   <span>
-                    <strong className="font-mono-tabular text-[#FAF6F0]">
+                    <strong className="font-mono-tabular text-white">
                       {selectedVenue.SeatedCapacity.toLocaleString('en-IN')}
                     </strong>{' '}
                     Seated Banquet
                   </span>
                   <span aria-hidden="true">·</span>
                   <span>
-                    <strong className="font-mono-tabular text-[#FAF6F0]">
+                    <strong className="font-mono-tabular text-white">
                       {selectedVenue.floatingCapacity.toLocaleString('en-IN')}
                     </strong>{' '}
                     Floating Reception
                   </span>
                   <span aria-hidden="true">·</span>
                   <span>
-                    <strong className="font-mono-tabular text-[#FAF6F0]">
+                    <strong className="font-mono-tabular text-white">
                       {selectedVenue.areaSqFt.toLocaleString('en-IN')}
                     </strong>{' '}
                     sq. ft. Event Footprint
                   </span>
                 </div>
 
-                <p className="text-sm sm:text-base text-[#E2D5C3] leading-relaxed">{selectedVenue.description}</p>
+                <p className="text-sm sm:text-base text-[#FAF6F0] leading-relaxed">{selectedVenue.description}</p>
 
                 <div>
-                  <h4 className="text-xs uppercase tracking-wider text-[#C9B8A6] mb-3 font-semibold">
+                  <h4 className="text-xs uppercase tracking-wider text-[#FFF3D1] mb-3 font-semibold">
                     Royal Infrastructure & Celebration Specifications
                   </h4>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {selectedVenue.signatureFeatures.map((feat, index) => (
-                      <li key={index} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#EDE2D4]">
-                        <Check className="w-4 h-4 text-[#D4AF37] shrink-0 mt-0.5" />
+                      <li key={index} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#FAF6F0]">
+                        <Check className="w-4 h-4 text-[#FFF3D1] shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </li>
                     ))}
@@ -172,23 +172,23 @@ Please share auspicious date availability, venue brochure, and a customized roya
             </div>
 
             {/* Bottom Venue Proof Strip */}
-            <div className="px-6 sm:px-8 py-4 bg-[#1E130D] border-t border-[#422D1F] flex flex-wrap items-center justify-between gap-4 text-xs text-[#C9B8A6]">
+            <div className="px-6 sm:px-8 py-4 bg-[#6E5C3F] border-t border-[#9E8966] flex flex-wrap items-center justify-between gap-4 text-xs text-[#F5ECE0]">
               <span>Ideal For: {selectedVenue.idealFor.join(' · ')}</span>
-              <span className="font-mono-tabular text-[#E6C674]">Parking: 350+ Vehicles on NH-11 Estate</span>
+              <span className="font-mono-tabular text-[#FFF3D1] font-medium">Parking: 350+ Vehicles on NH-11 Estate</span>
             </div>
           </div>
 
           {/* Right Column: Interactive Marriage & Event Booking Desk */}
-          <div className="lg:col-span-5 bg-[#FAF6F0] text-[#231710] rounded-xl border border-[#DECBB3] p-6 sm:p-8 flex flex-col justify-between">
+          <div className="lg:col-span-5 bg-[#FAF6F0] text-[#3D3122] rounded-xl border border-[#DECBB3] p-6 sm:p-8 flex flex-col justify-between shadow-lg">
             <div>
               <div className="border-b border-[#E2D5C3] pb-4 mb-6">
-                <span className="text-xs font-medium text-[#8C6200] block mb-1">
+                <span className="text-xs font-semibold text-[#917C58] block mb-1">
                   Bespoke Celebration & Saya Inquiry Desk
                 </span>
-                <h3 className="font-serif-royal text-2xl sm:text-3xl font-semibold text-[#231710]">
+                <h3 className="font-serif-royal text-2xl sm:text-3xl font-semibold text-[#3D3122]">
                   Plan Your Royal Wedding or Event
                 </h3>
-                <p className="text-xs text-[#6E5A4F] mt-1">
+                <p className="text-xs text-[#7A6747] mt-1">
                   Customize your guest count and room block below to check auspicious date availability directly on
                   WhatsApp.
                 </p>
@@ -196,18 +196,18 @@ Please share auspicious date availability, venue brochure, and a customized roya
 
               {proposalSubmitted ? (
                 <div className="py-8 text-center space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-[#231710] text-[#D4AF37] flex items-center justify-center mx-auto">
+                  <div className="w-12 h-12 rounded-full bg-[#917C58] text-[#FAF6F0] flex items-center justify-center mx-auto">
                     <Sparkles className="w-6 h-6" />
                   </div>
-                  <h4 className="font-serif-royal text-2xl font-semibold text-[#231710]">
+                  <h4 className="font-serif-royal text-2xl font-semibold text-[#3D3122]">
                     Wedding Concierge Request Registered
                   </h4>
-                  <p className="text-sm text-[#5C493E] leading-relaxed">
+                  <p className="text-sm text-[#5C4B35] leading-relaxed">
                     Thank you, <strong>{hostName}</strong>. Our Senior Wedding & Banquet Director at Sri Karni Heritage
                     Resort will contact you on <span className="font-mono-tabular font-medium">{hostPhone}</span> with a
                     custom floorplan and tariff proposal for <strong>{eventType}</strong>.
                   </p>
-                  <div className="p-4 bg-[#F3ECE1] rounded-lg border border-[#DECBB3] text-left text-xs space-y-1 text-[#3D2B20]">
+                  <div className="p-4 bg-[#F3ECE1] rounded-lg border border-[#D5C5AE] text-left text-xs space-y-1 text-[#4A3C2A]">
                     <div>
                       <strong>Selected Venue:</strong> {selectedVenue.name}
                     </div>
@@ -231,7 +231,7 @@ Please share auspicious date availability, venue brochure, and a customized roya
                     <button
                       type="button"
                       onClick={() => setProposalSubmitted(false)}
-                      className="text-xs text-[#6E5A4F] hover:text-[#231710] underline cursor-pointer py-1"
+                      className="text-xs text-[#7A6747] hover:text-[#3D3122] underline cursor-pointer py-1"
                     >
                       Edit Event Configuration
                     </button>
@@ -240,11 +240,11 @@ Please share auspicious date availability, venue brochure, and a customized roya
               ) : (
                 <form onSubmit={handleProposalRequest} className="space-y-4">
                   <div>
-                    <label className="block text-xs font-medium text-[#3D2B20] mb-1">Celebration / Event Type</label>
+                    <label className="block text-xs font-medium text-[#4A3C2A] mb-1">Celebration / Event Type</label>
                     <select
                       value={eventType}
                       onChange={(e) => setEventType(e.target.value)}
-                      className="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-white border border-[#D5C3AC] rounded-lg text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                      className="w-full px-3.5 py-2.5 text-xs sm:text-sm bg-white border border-[#C9B89E] rounded-lg text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                     >
                       <option value="Royal Destination Wedding (2–3 Days)">
                         Royal Destination Wedding (2–3 Days)
@@ -266,14 +266,14 @@ Please share auspicious date availability, venue brochure, and a customized roya
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-medium text-[#3D2B20] mb-1">
-                        <Users className="w-3.5 h-3.5 inline mr-1 text-[#8C6200]" />
+                      <label className="block text-xs font-medium text-[#4A3C2A] mb-1">
+                        <Users className="w-3.5 h-3.5 inline mr-1 text-[#917C58]" />
                         Expected Guests
                       </label>
                       <select
                         value={guestCount}
                         onChange={(e) => setGuestCount(e.target.value)}
-                        className="w-full px-3 py-2.5 text-xs bg-white border border-[#D5C3AC] rounded-lg text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                        className="w-full px-3 py-2.5 text-xs bg-white border border-[#C9B89E] rounded-lg text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                       >
                         <option value="150 – 300 Guests">150 – 300 Guests</option>
                         <option value="300 – 500 Guests">300 – 500 Guests</option>
@@ -284,14 +284,14 @@ Please share auspicious date availability, venue brochure, and a customized roya
                     </div>
 
                     <div>
-                      <label className="block text-xs font-medium text-[#3D2B20] mb-1">
-                        <Building2 className="w-3.5 h-3.5 inline mr-1 text-[#8C6200]" />
+                      <label className="block text-xs font-medium text-[#4A3C2A] mb-1">
+                        <Building2 className="w-3.5 h-3.5 inline mr-1 text-[#917C58]" />
                         Residential Rooms
                       </label>
                       <select
                         value={roomBlock}
                         onChange={(e) => setRoomBlock(e.target.value)}
-                        className="w-full px-3 py-2.5 text-xs bg-white border border-[#D5C3AC] rounded-lg text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                        className="w-full px-3 py-2.5 text-xs bg-white border border-[#C9B89E] rounded-lg text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                       >
                         <option value="Lawn / Hall Only (10–15 Rooms)">Lawn / Hall Only (10–15 Rooms)</option>
                         <option value="20 – 40 Heritage Rooms">20 – 40 Heritage Rooms</option>
@@ -305,23 +305,23 @@ Please share auspicious date availability, venue brochure, and a customized roya
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-medium text-[#3D2B20] mb-1">
-                        <Calendar className="w-3.5 h-3.5 inline mr-1 text-[#8C6200]" />
+                      <label className="block text-xs font-medium text-[#4A3C2A] mb-1">
+                        <Calendar className="w-3.5 h-3.5 inline mr-1 text-[#917C58]" />
                         Auspicious Date (Saya)
                       </label>
                       <input
                         type="date"
                         value={eventDate}
                         onChange={(e) => setEventDate(e.target.value)}
-                        className="w-full px-3 py-2 text-xs font-mono-tabular bg-white border border-[#D5C3AC] rounded-lg text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                        className="w-full px-3 py-2 text-xs font-mono-tabular bg-white border border-[#C9B89E] rounded-lg text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-[#3D2B20] mb-1">Catering Preference</label>
+                      <label className="block text-xs font-medium text-[#4A3C2A] mb-1">Catering Preference</label>
                       <select
                         value={cateringStyle}
                         onChange={(e) => setCateringStyle(e.target.value)}
-                        className="w-full px-3 py-2 text-xs bg-white border border-[#D5C3AC] rounded-lg text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                        className="w-full px-3 py-2 text-xs bg-white border border-[#C9B89E] rounded-lg text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                       >
                         <option value="Royal Marwari Thali + Multi-Cuisine Live Counters">
                           Royal Marwari + Multi-Cuisine
@@ -337,12 +337,12 @@ Please share auspicious date availability, venue brochure, and a customized roya
                   </div>
 
                   {/* Indicative Package Band */}
-                  <div className="p-3.5 bg-[#F3ECE1] rounded-lg border border-[#DECBB3]">
+                  <div className="p-3.5 bg-[#F3ECE1] rounded-lg border border-[#D5C5AE]">
                     <div className="flex items-baseline justify-between">
-                      <span className="text-xs text-[#6E5A4F]">Indicative Buyout / Venue Estimate</span>
-                      <span className="font-mono-tabular text-sm font-bold text-[#231710]">{estimate.range}</span>
+                      <span className="text-xs text-[#7A6747]">Indicative Buyout / Venue Estimate</span>
+                      <span className="font-mono-tabular text-sm font-bold text-[#3D3122]">{estimate.range}</span>
                     </div>
-                    <p className="text-[11px] text-[#6E5A4F] mt-1 leading-snug">{estimate.inclusionsSummary}</p>
+                    <p className="text-[11px] text-[#7A6747] mt-1 leading-snug">{estimate.inclusionsSummary}</p>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
@@ -351,21 +351,21 @@ Please share auspicious date availability, venue brochure, and a customized roya
                       placeholder="Host / Family Name *"
                       value={hostName}
                       onChange={(e) => setHostName(e.target.value)}
-                      className="px-3 py-2 text-xs bg-white border border-[#D5C3AC] rounded-lg text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                      className="px-3 py-2 text-xs bg-white border border-[#C9B89E] rounded-lg text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                     />
                     <input
                       type="tel"
                       placeholder="Mobile Number *"
                       value={hostPhone}
                       onChange={(e) => setHostPhone(e.target.value)}
-                      className="px-3 py-2 text-xs font-mono-tabular bg-white border border-[#D5C3AC] rounded-lg text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                      className="px-3 py-2 text-xs font-mono-tabular bg-white border border-[#C9B89E] rounded-lg text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                     />
                     <input
                       type="text"
                       placeholder="Your City (e.g. Bikaner)"
                       value={hostCity}
                       onChange={(e) => setHostCity(e.target.value)}
-                      className="px-3 py-2 text-xs bg-white border border-[#D5C3AC] rounded-lg text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                      className="px-3 py-2 text-xs bg-white border border-[#C9B89E] rounded-lg text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                     />
                   </div>
 
@@ -384,7 +384,7 @@ Please share auspicious date availability, venue brochure, and a customized roya
 
                     <button
                       type="submit"
-                      className="w-full px-5 py-2.5 bg-[#231710] hover:bg-[#3A271C] text-[#FAF6F0] text-xs font-medium rounded-lg transition-colors cursor-pointer whitespace-nowrap"
+                      className="w-full px-5 py-2.5 bg-[#917C58] hover:bg-[#7D6949] text-[#FAF6F0] text-xs font-medium rounded-lg transition-colors cursor-pointer whitespace-nowrap"
                     >
                       Request Official Wedding Brochure & Callback
                     </button>
@@ -393,13 +393,13 @@ Please share auspicious date availability, venue brochure, and a customized roya
               )}
             </div>
 
-            <div className="mt-5 pt-4 border-t border-[#E2D5C3] flex items-center justify-between text-xs text-[#6E5A4F]">
+            <div className="mt-5 pt-4 border-t border-[#E2D5C3] flex items-center justify-between text-xs text-[#7A6747]">
               <span>Direct Banquet Hotline:</span>
               <a
                 href={`tel:+${RESORT_CONTACT.phoneRaw}`}
-                className="inline-flex items-center gap-1.5 font-mono-tabular font-semibold text-[#231710] hover:text-[#B8860B]"
+                className="inline-flex items-center gap-1.5 font-mono-tabular font-semibold text-[#3D3122] hover:text-[#917C58]"
               >
-                <PhoneCall className="w-3.5 h-3.5 text-[#B8860B]" />
+                <PhoneCall className="w-3.5 h-3.5 text-[#917C58]" />
                 {RESORT_CONTACT.phoneDisplay}
               </a>
             </div>

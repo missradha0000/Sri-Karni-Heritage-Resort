@@ -70,16 +70,16 @@ Please confirm availability and royal tariff details.`;
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[#180F0A]/80 backdrop-blur-sm p-4 sm:p-6 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-[#3D3122]/75 backdrop-blur-sm p-4 sm:p-6 overflow-y-auto"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-suite-title"
     >
       <div className="relative w-full max-w-4xl bg-[#FAF6F0] border border-[#D8C7B2] rounded-xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
         {/* Top Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 bg-[#231710] text-[#FAF6F0] border-b border-[#3D291D]">
+        <div className="flex items-center justify-between px-6 py-4 bg-[#917C58] text-[#FAF6F0] border-b border-[#7D6949]">
           <div>
-            <p className="text-xs text-[#D4AF37] tracking-wide">
+            <p className="text-xs text-[#FFF3D1] tracking-wide">
               {room.categoryLabel} · {room.hindiTitle}
             </p>
             <h2 id="modal-suite-title" className="font-serif-royal text-2xl sm:text-3xl font-semibold text-[#FAF6F0]">
@@ -90,7 +90,7 @@ Please confirm availability and royal tariff details.`;
             type="button"
             onClick={onClose}
             aria-label="Close room details"
-            className="p-2 text-[#E5D9C8] hover:text-white rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
+            className="p-2 text-[#FAF6F0] hover:text-white rounded-lg hover:bg-white/15 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -101,20 +101,20 @@ Please confirm availability and royal tariff details.`;
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Visuals & Architectural Notes */}
             <div className="lg:col-span-7 space-y-4">
-              <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden bg-[#231710]">
+              <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden bg-[#917C58]">
                 <ResilientImage
                   src={photos[activePhotoIndex]}
                   alt={`${room.name} view ${activePhotoIndex + 1}`}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-3 right-3 flex items-center gap-2 bg-[#231710]/85 backdrop-blur-sm p-1 rounded-md border border-[#B8860B]/40">
+                <div className="absolute bottom-3 right-3 flex items-center gap-2 bg-[#917C58]/90 backdrop-blur-sm p-1 rounded-md border border-[#FAF6F0]/30">
                   <button
                     type="button"
                     onClick={() => setActivePhotoIndex(0)}
                     className={`px-3 py-1 text-xs font-medium rounded transition-colors cursor-pointer whitespace-nowrap ${
                       activePhotoIndex === 0
-                        ? 'bg-[#B8860B] text-[#FAF6F0]'
-                        : 'text-[#E5D9C8] hover:text-white'
+                        ? 'bg-[#FAF6F0] text-[#5C4B32]'
+                        : 'text-[#FAF6F0] hover:bg-white/10'
                     }`}
                   >
                     Suite Chamber
@@ -124,8 +124,8 @@ Please confirm availability and royal tariff details.`;
                     onClick={() => setActivePhotoIndex(1)}
                     className={`px-3 py-1 text-xs font-medium rounded transition-colors cursor-pointer whitespace-nowrap ${
                       activePhotoIndex === 1
-                        ? 'bg-[#B8860B] text-[#FAF6F0]'
-                        : 'text-[#E5D9C8] hover:text-white'
+                        ? 'bg-[#FAF6F0] text-[#5C4B32]'
+                        : 'text-[#FAF6F0] hover:bg-white/10'
                     }`}
                   >
                     Estate View
@@ -134,8 +134,8 @@ Please confirm availability and royal tariff details.`;
               </div>
 
               {/* Unboxed Metadata Line */}
-              <div className="flex flex-wrap items-center gap-2 text-xs text-[#6E5A4F] pt-1">
-                <span className="font-mono-tabular font-medium text-[#231710]">{room.areaSqFt} sq. ft.</span>
+              <div className="flex flex-wrap items-center gap-2 text-xs text-[#7A6747] pt-1">
+                <span className="font-mono-tabular font-medium text-[#3D3122]">{room.areaSqFt} sq. ft.</span>
                 <span aria-hidden="true">·</span>
                 <span>{room.maxGuests}</span>
                 <span aria-hidden="true">·</span>
@@ -144,47 +144,47 @@ Please confirm availability and royal tariff details.`;
                 <span>{room.view}</span>
               </div>
 
-              <p className="text-sm sm:text-base text-[#3D2B20] leading-relaxed">{room.shortDescription}</p>
+              <p className="text-sm sm:text-base text-[#4A3C2A] leading-relaxed">{room.shortDescription}</p>
 
               <div className="pt-4 border-t border-[#E2D5C3]">
-                <h3 className="font-serif-royal text-xl font-semibold text-[#231710] mb-2">
+                <h3 className="font-serif-royal text-xl font-semibold text-[#3D3122] mb-2">
                   Rajasthani Architectural Craftsmanship
                 </h3>
-                <p className="text-sm text-[#5C493E] leading-relaxed">{room.architecturalNotes}</p>
+                <p className="text-sm text-[#5C4B35] leading-relaxed">{room.architecturalNotes}</p>
               </div>
 
               <div className="pt-4 border-t border-[#E2D5C3]">
-                <h3 className="font-serif-royal text-xl font-semibold text-[#231710] mb-3">
+                <h3 className="font-serif-royal text-xl font-semibold text-[#3D3122] mb-3">
                   Signature Suite Privileges
                 </h3>
                 <ul className="space-y-2">
                   {room.highlights.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-sm text-[#3D2B20]">
-                      <Check className="w-4 h-4 text-[#B8860B] shrink-0 mt-0.5" />
+                    <li key={idx} className="flex items-start gap-2.5 text-sm text-[#4A3C2A]">
+                      <Check className="w-4 h-4 text-[#917C58] shrink-0 mt-0.5" />
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="pt-3 text-xs text-[#6E5A4F]">
+              <div className="pt-3 text-xs text-[#7A6747]">
                 Complimentary Inclusions: {room.inclusions.join(' · ')}
               </div>
             </div>
 
             {/* Right Column: Instant Stay Configurator & WhatsApp Inquiry */}
-            <div className="lg:col-span-5 bg-[#F3ECE1] p-6 rounded-lg border border-[#DECBB3] space-y-5">
-              <div className="flex items-baseline justify-between border-b border-[#DECBB3] pb-4">
+            <div className="lg:col-span-5 bg-[#F3ECE1] p-6 rounded-lg border border-[#D5C5AE] space-y-5">
+              <div className="flex items-baseline justify-between border-b border-[#D5C5AE] pb-4">
                 <div>
-                  <span className="text-xs text-[#6E5A4F] block">Royal Nightly Tariff</span>
-                  <span className="font-mono-tabular text-2xl font-bold text-[#231710]">
+                  <span className="text-xs text-[#7A6747] block">Royal Nightly Tariff</span>
+                  <span className="font-mono-tabular text-2xl font-bold text-[#3D3122]">
                     ₹{room.pricePerNight.toLocaleString('en-IN')}
                   </span>
-                  <span className="text-xs text-[#6E5A4F]"> / night</span>
+                  <span className="text-xs text-[#7A6747]"> / night</span>
                 </div>
                 <div className="text-right">
-                  <span className="text-xs text-[#6E5A4F] block">Estimated ({nights}N × {numRooms}R)</span>
-                  <span className="font-mono-tabular text-lg font-semibold text-[#8C6200]">
+                  <span className="text-xs text-[#7A6747] block">Estimated ({nights}N × {numRooms}R)</span>
+                  <span className="font-mono-tabular text-lg font-semibold text-[#917C58]">
                     ₹{estimatedTotal.toLocaleString('en-IN')}
                   </span>
                 </div>
@@ -192,19 +192,19 @@ Please confirm availability and royal tariff details.`;
 
               {bookingConfirmed ? (
                 <div className="py-6 space-y-4 text-center">
-                  <div className="w-12 h-12 rounded-full bg-[#231710] text-[#D4AF37] flex items-center justify-center mx-auto">
+                  <div className="w-12 h-12 rounded-full bg-[#917C58] text-[#FAF6F0] flex items-center justify-center mx-auto">
                     <Sparkles className="w-6 h-6" />
                   </div>
-                  <h4 className="font-serif-royal text-2xl font-semibold text-[#231710]">
+                  <h4 className="font-serif-royal text-2xl font-semibold text-[#3D3122]">
                     Royal Reservation Request Logged
                   </h4>
-                  <p className="text-sm text-[#5C493E] leading-relaxed">
-                    Khamma Ghani, <strong className="text-[#231710]">{guestName}</strong>. Our reservations desk at Sri
+                  <p className="text-sm text-[#5C4B35] leading-relaxed">
+                    Khamma Ghani, <strong className="text-[#3D3122]">{guestName}</strong>. Our reservations desk at Sri
                     Karni Heritage Resort has registered your request for <strong>{numRooms} × {room.name}</strong> from{' '}
                     <span className="font-mono-tabular">{checkIn}</span> to{' '}
                     <span className="font-mono-tabular">{checkOut}</span>.
                   </p>
-                  <p className="text-xs text-[#6E5A4F]">
+                  <p className="text-xs text-[#7A6747]">
                     For instant priority confirmation from our Front Office Manager ({RESORT_CONTACT.phoneDisplay}), tap
                     below to send your booking pass on WhatsApp.
                   </p>
@@ -221,7 +221,7 @@ Please confirm availability and royal tariff details.`;
                     <button
                       type="button"
                       onClick={() => setBookingConfirmed(false)}
-                      className="text-xs text-[#6E5A4F] hover:text-[#231710] underline cursor-pointer py-1"
+                      className="text-xs text-[#7A6747] hover:text-[#3D3122] underline cursor-pointer py-1"
                     >
                       Modify dates or room count
                     </button>
@@ -231,28 +231,28 @@ Please confirm availability and royal tariff details.`;
                 <form onSubmit={handleDirectReservationSubmit} className="space-y-4">
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-medium text-[#3D2B20] mb-1">
-                        <Calendar className="w-3.5 h-3.5 inline mr-1 text-[#8C6200]" />
+                      <label className="block text-xs font-medium text-[#4A3C2A] mb-1">
+                        <Calendar className="w-3.5 h-3.5 inline mr-1 text-[#917C58]" />
                         Check-In
                       </label>
                       <input
                         type="date"
                         value={checkIn}
                         onChange={(e) => setCheckIn(e.target.value)}
-                        className="w-full px-3 py-2 text-xs font-mono-tabular bg-[#FAF6F0] border border-[#D5C3AC] rounded-md text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                        className="w-full px-3 py-2 text-xs font-mono-tabular bg-[#FAF6F0] border border-[#C9B89E] rounded-md text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                         required
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-[#3D2B20] mb-1">
-                        <Calendar className="w-3.5 h-3.5 inline mr-1 text-[#8C6200]" />
+                      <label className="block text-xs font-medium text-[#4A3C2A] mb-1">
+                        <Calendar className="w-3.5 h-3.5 inline mr-1 text-[#917C58]" />
                         Check-Out
                       </label>
                       <input
                         type="date"
                         value={checkOut}
                         onChange={(e) => setCheckOut(e.target.value)}
-                        className="w-full px-3 py-2 text-xs font-mono-tabular bg-[#FAF6F0] border border-[#D5C3AC] rounded-md text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                        className="w-full px-3 py-2 text-xs font-mono-tabular bg-[#FAF6F0] border border-[#C9B89E] rounded-md text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                         required
                       />
                     </div>
@@ -260,11 +260,11 @@ Please confirm availability and royal tariff details.`;
 
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-medium text-[#3D2B20] mb-1">Rooms Required</label>
+                      <label className="block text-xs font-medium text-[#4A3C2A] mb-1">Rooms Required</label>
                       <select
                         value={roomsCount}
                         onChange={(e) => setRoomsCount(e.target.value)}
-                        className="w-full px-3 py-2 text-xs bg-[#FAF6F0] border border-[#D5C3AC] rounded-md text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                        className="w-full px-3 py-2 text-xs bg-[#FAF6F0] border border-[#C9B89E] rounded-md text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                       >
                         <option value="1">1 Room</option>
                         <option value="2">2 Rooms</option>
@@ -274,14 +274,14 @@ Please confirm availability and royal tariff details.`;
                       </select>
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-[#3D2B20] mb-1">
-                        <Users className="w-3.5 h-3.5 inline mr-1 text-[#8C6200]" />
+                      <label className="block text-xs font-medium text-[#4A3C2A] mb-1">
+                        <Users className="w-3.5 h-3.5 inline mr-1 text-[#917C58]" />
                         Guests
                       </label>
                       <select
                         value={guests}
                         onChange={(e) => setGuests(e.target.value)}
-                        className="w-full px-3 py-2 text-xs bg-[#FAF6F0] border border-[#D5C3AC] rounded-md text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                        className="w-full px-3 py-2 text-xs bg-[#FAF6F0] border border-[#C9B89E] rounded-md text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                       >
                         <option value="2 Adults">2 Adults</option>
                         <option value="2 Adults, 1 Child">2 Adults, 1 Child</option>
@@ -294,29 +294,29 @@ Please confirm availability and royal tariff details.`;
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-xs font-medium text-[#3D2B20] mb-1">Your Full Name</label>
+                      <label className="block text-xs font-medium text-[#4A3C2A] mb-1">Your Full Name</label>
                       <input
                         type="text"
                         placeholder="e.g. Kunwar Harshvardhan"
                         value={guestName}
                         onChange={(e) => setGuestName(e.target.value)}
-                        className="w-full px-3 py-2 text-xs bg-[#FAF6F0] border border-[#D5C3AC] rounded-md text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                        className="w-full px-3 py-2 text-xs bg-[#FAF6F0] border border-[#C9B89E] rounded-md text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                       />
                     </div>
                     <div>
-                      <label className="block text-xs font-medium text-[#3D2B20] mb-1">Mobile / WhatsApp No.</label>
+                      <label className="block text-xs font-medium text-[#4A3C2A] mb-1">Mobile / WhatsApp No.</label>
                       <input
                         type="tel"
                         placeholder="+91 98XXX XXXXX"
                         value={guestPhone}
                         onChange={(e) => setGuestPhone(e.target.value)}
-                        className="w-full px-3 py-2 text-xs font-mono-tabular bg-[#FAF6F0] border border-[#D5C3AC] rounded-md text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                        className="w-full px-3 py-2 text-xs font-mono-tabular bg-[#FAF6F0] border border-[#C9B89E] rounded-md text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-xs font-medium text-[#3D2B20] mb-1">
+                    <label className="block text-xs font-medium text-[#4A3C2A] mb-1">
                       Special Preferences (Optional)
                     </label>
                     <input
@@ -324,7 +324,7 @@ Please confirm availability and royal tariff details.`;
                       placeholder="Jain meals, ground floor room, late NH-11 arrival..."
                       value={specialRequest}
                       onChange={(e) => setSpecialRequest(e.target.value)}
-                      className="w-full px-3 py-2 text-xs bg-[#FAF6F0] border border-[#D5C3AC] rounded-md text-[#231710] focus:outline-none focus:border-[#B8860B]"
+                      className="w-full px-3 py-2 text-xs bg-[#FAF6F0] border border-[#C9B89E] rounded-md text-[#3D3122] focus:outline-none focus:border-[#917C58]"
                     />
                   </div>
 
@@ -343,7 +343,7 @@ Please confirm availability and royal tariff details.`;
 
                     <button
                       type="submit"
-                      className="w-full px-5 py-2.5 bg-[#231710] hover:bg-[#3A271C] text-[#FAF6F0] text-xs font-medium rounded-lg transition-colors cursor-pointer whitespace-nowrap"
+                      className="w-full px-5 py-2.5 bg-[#917C58] hover:bg-[#7D6949] text-[#FAF6F0] text-xs font-medium rounded-lg transition-colors cursor-pointer whitespace-nowrap"
                     >
                       Request Desk Callback
                     </button>

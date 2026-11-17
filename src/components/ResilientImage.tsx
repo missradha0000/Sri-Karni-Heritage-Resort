@@ -20,12 +20,12 @@ export const ResilientImage: React.FC<ResilientImageProps> = ({
   if (hasError || !src) {
     return (
       <div
-        className={`relative flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-[#231710] via-[#3A261B] to-[#1A110B] text-[#FAF6F0] p-6 text-center ${className}`}
+        className={`relative flex flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-[#917C58] via-[#7D6949] to-[#68563A] text-[#FAF6F0] p-6 text-center ${className}`}
         role="img"
         aria-label={alt}
       >
         <svg
-          className="w-16 h-16 text-[#B8860B]/70 mb-3"
+          className="w-16 h-16 text-[#FAF6F0]/80 mb-3"
           viewBox="0 0 64 64"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
