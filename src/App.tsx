@@ -144,8 +144,8 @@ const HOMEPAGE_HERO_SLIDES: {
 }[] = [
   {
     id: 'slide-1',
-    image: RESORT_IMAGES.facadeMainHotelLawn,
-    objectPosition: 'object-[center_35%]',
+    image: RESORT_IMAGES.facadeElevation,
+    objectPosition: 'object-[center_30%]',
     kicker: 'EST. 2019 · NH-11 NEAR HANUMAN DHORA · SRI DUNGARGARH, BIKANER',
     hindiBadge: 'पधारो म्हारे देश · श्री करणी हेरिटेज रिसॉर्ट',
     title: 'SRI KARNI HERITAGE RESORT',
@@ -164,8 +164,8 @@ const HOMEPAGE_HERO_SLIDES: {
   },
   {
     id: 'slide-3',
-    image: RESORT_IMAGES.facadeElevation,
-    objectPosition: 'object-[center_30%]',
+    image: RESORT_IMAGES.facadeMainHotelLawn,
+    objectPosition: 'object-[center_35%]',
     kicker: 'FOUR SIGNATURE CELEBRATION VENUES · 1,500+ GUEST CAPACITY',
     hindiBadge: 'शाही विवाह एवं भव्य समारोहों का संगम स्थल',
     title: 'GRAND ROYAL WEDDINGS & LAWNS',
@@ -278,9 +278,23 @@ export default function App() {
     setTimeout(updateSubNavScrollArrows, 320);
   };
 
-  // Quick-Booking Bar State
+  // Official karniresort.com Horizontal Stay & Event Enquiry Ledger State
+  const [enquiryLedgerTab, setEnquiryLedgerTab] = useState<'stay' | 'event'>('stay');
+  const [stayGuestName, setStayGuestName] = useState('');
   const [checkInDate, setCheckInDate] = useState('2026-11-24');
   const [checkOutDate, setCheckOutDate] = useState('2026-11-26');
+  const [stayAccommodation, setStayAccommodation] = useState('Heritage Luxury Room & Suite');
+  const [stayRoomsCount, setStayRoomsCount] = useState('1 Room');
+  const [stayOccupancy, setStayOccupancy] = useState('2 Adults');
+
+  const [eventHostName, setEventHostName] = useState('');
+  const [eventOccasion, setEventOccasion] = useState('3-Day Full Estate Wedding Buyout (125 Rooms)');
+  const [eventPreferredDate, setEventPreferredDate] = useState('2026-12-10');
+  const [eventGatheringSize, setEventGatheringSize] = useState('250–500 Guests');
+  const [eventVenueConfig, setEventVenueConfig] = useState(
+    'Full 125-Room Estate Buyout + Lawn + Banquets + Pool'
+  );
+
   const [selectedGuests, setSelectedGuests] = useState('2 Adults · 1 Room');
   const [availabilityBanner, setAvailabilityBanner] = useState<string | null>(null);
 
@@ -315,11 +329,33 @@ export default function App() {
 I would like to check room availability & direct tariff:
 
 • Property: Sri Karni Heritage Resort, NH-11 Sri Dungargarh (Bikaner)
+• Guest Name: ${stayGuestName.trim() || 'Guest Inquiry'}
 • Check-In: ${checkInDate}
 • Check-Out: ${checkOutDate}
-• Guests / Scope: ${selectedGuests}
+• Accommodation: ${stayAccommodation}
+• Rooms: ${stayRoomsCount}
+• Occupancy: ${stayOccupancy}
 
-Please share available rooms and tariff details.`;
+Please share available rooms and direct tariff details.`;
+
+  const stayEmailHref = `mailto:${RESORT_CONTACT.email}?subject=${encodeURIComponent(
+    `Stay Enquiry — ${stayAccommodation} (${checkInDate} to ${checkOutDate})`
+  )}&body=${encodeURIComponent(quickBookingWhatsAppText)}`;
+
+  const eventWhatsAppText = `Khamma Ghani Sri Karni Heritage Resort! 🙏
+I would like to request a Wedding / Event Buyout Proposal:
+
+• Host / Family Name: ${eventHostName.trim() || 'Family / Event Host'}
+• Occasion: ${eventOccasion}
+• Preferred Date: ${eventPreferredDate}
+• Gathering Size: ${eventGatheringSize}
+• Venue & Residence Configuration: ${eventVenueConfig}
+
+Please share venue availability, buyout tariff, and schedule a private walkthrough.`;
+
+  const eventEmailHref = `mailto:${RESORT_CONTACT.email}?subject=${encodeURIComponent(
+    `Wedding & Event Enquiry — ${eventOccasion} (${eventPreferredDate})`
+  )}&body=${encodeURIComponent(eventWhatsAppText)}`;
 
   const handleCheckAvailability = (e: React.FormEvent) => {
     e.preventDefault();
@@ -677,6 +713,404 @@ Please share available rooms and tariff details.`;
         {/* --- TAB: OVERVIEW (Default comprehensive view with Founders Story from karniresort.com) --- */}
         {activeTab === 'overview' && (
           <>
+            {/* =================================================================
+                OFFICIAL KARNIRESORT.COM HORIZONTAL RESERVATION & EVENT ENQUIRY LEDGER
+                + 4-COLUMN ARCHITECTURAL FIGURES LEDGER
+               ================================================================= */}
+            <section
+              id="reservations"
+              className="bg-white border-b border-[#E2DFD7]"
+            >
+              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-8 sm:pt-10 sm:pb-10">
+                {/* Ledger Header: Tabs + Check-In/Out Meta */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-5 border-b border-[#E6E3DD]">
+                  <div className="inline-flex items-center border border-[#D6D2C9] bg-[#FBF9F6] p-1 self-start">
+                    <button
+                      type="button"
+                      onClick={() => setEnquiryLedgerTab('stay')}
+                      className={`px-5 py-2.5 text-xs tracking-[0.14em] uppercase font-semibold transition-all cursor-pointer ${
+                        enquiryLedgerTab === 'stay'
+                          ? 'bg-[#AD8B3A] text-white shadow-xs'
+                          : 'text-[#4A4843] hover:text-[#AD8B3A]'
+                      }`}
+                    >
+                      Stay Enquiry
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setEnquiryLedgerTab('event')}
+                      className={`px-5 py-2.5 text-xs tracking-[0.14em] uppercase font-semibold transition-all cursor-pointer ${
+                        enquiryLedgerTab === 'event'
+                          ? 'bg-[#AD8B3A] text-white shadow-xs'
+                          : 'text-[#4A4843] hover:text-[#AD8B3A]'
+                      }`}
+                    >
+                      Wedding &amp; Event Enquiry
+                    </button>
+                  </div>
+
+                  <div className="text-[11px] sm:text-xs tracking-[0.08em] uppercase text-[#6E6A63] font-medium">
+                    Check-In 12:00 PM • Check-Out 11:00 AM • Direct Reservations Desk:{' '}
+                    <a
+                      href={`tel:+${RESORT_CONTACT.phoneRaw}`}
+                      className="text-[#AD8B3A] font-semibold hover:underline font-mono-tabular"
+                    >
+                      {RESORT_CONTACT.phoneDisplay}
+                    </a>
+                  </div>
+                </div>
+
+                {/* TAB 1: ROOM STAY ENQUIRY FORM */}
+                {enquiryLedgerTab === 'stay' ? (
+                  <form
+                    onSubmit={(e) => e.preventDefault()}
+                    className="pt-6 space-y-5"
+                  >
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+                      <div className="bg-[#FBF9F6] border border-[#DFDBD2] px-3.5 py-2.5">
+                        <label
+                          htmlFor="stayName"
+                          className="block text-[10px] tracking-[0.16em] uppercase text-[#AD8B3A] font-semibold mb-1"
+                        >
+                          Guest Name
+                        </label>
+                        <input
+                          id="stayName"
+                          type="text"
+                          value={stayGuestName}
+                          onChange={(e) => setStayGuestName(e.target.value)}
+                          placeholder="Full Name"
+                          className="w-full bg-transparent text-xs sm:text-sm text-[#292826] placeholder:text-[#9A958C] focus:outline-none"
+                        />
+                      </div>
+
+                      <div className="bg-[#FBF9F6] border border-[#DFDBD2] px-3.5 py-2.5">
+                        <label
+                          htmlFor="stayCheckin"
+                          className="block text-[10px] tracking-[0.16em] uppercase text-[#AD8B3A] font-semibold mb-1"
+                        >
+                          Check-In
+                        </label>
+                        <input
+                          id="stayCheckin"
+                          type="date"
+                          value={checkInDate}
+                          onChange={(e) => setCheckInDate(e.target.value)}
+                          className="w-full bg-transparent text-xs sm:text-sm font-mono-tabular text-[#292826] focus:outline-none"
+                        />
+                      </div>
+
+                      <div className="bg-[#FBF9F6] border border-[#DFDBD2] px-3.5 py-2.5">
+                        <label
+                          htmlFor="stayCheckout"
+                          className="block text-[10px] tracking-[0.16em] uppercase text-[#AD8B3A] font-semibold mb-1"
+                        >
+                          Check-Out
+                        </label>
+                        <input
+                          id="stayCheckout"
+                          type="date"
+                          value={checkOutDate}
+                          onChange={(e) => setCheckOutDate(e.target.value)}
+                          className="w-full bg-transparent text-xs sm:text-sm font-mono-tabular text-[#292826] focus:outline-none"
+                        />
+                      </div>
+
+                      <div className="bg-[#FBF9F6] border border-[#DFDBD2] px-3.5 py-2.5">
+                        <label
+                          htmlFor="stayRoomType"
+                          className="block text-[10px] tracking-[0.16em] uppercase text-[#AD8B3A] font-semibold mb-1"
+                        >
+                          Accommodation
+                        </label>
+                        <select
+                          id="stayRoomType"
+                          value={stayAccommodation}
+                          onChange={(e) => setStayAccommodation(e.target.value)}
+                          className="w-full bg-transparent text-xs sm:text-sm text-[#292826] focus:outline-none"
+                        >
+                          <option value="Heritage Luxury Room & Suite">
+                            Heritage Luxury Room &amp; Suite
+                          </option>
+                          <option value="Royal Family Suite">Royal Family Suite</option>
+                          <option value="Wedding & Group Residence Wing (10–40 Rooms)">
+                            Group Residence Wing (10–40 Rooms)
+                          </option>
+                          <option value="NH-11 Highway Transit Stay">
+                            NH-11 Highway Transit Stay
+                          </option>
+                        </select>
+                      </div>
+
+                      <div className="bg-[#FBF9F6] border border-[#DFDBD2] px-3.5 py-2.5">
+                        <label
+                          htmlFor="stayRoomsCount"
+                          className="block text-[10px] tracking-[0.16em] uppercase text-[#AD8B3A] font-semibold mb-1"
+                        >
+                          Rooms
+                        </label>
+                        <select
+                          id="stayRoomsCount"
+                          value={stayRoomsCount}
+                          onChange={(e) => setStayRoomsCount(e.target.value)}
+                          className="w-full bg-transparent text-xs sm:text-sm text-[#292826] focus:outline-none"
+                        >
+                          <option value="1 Room">1 Room</option>
+                          <option value="2 Rooms">2 Rooms</option>
+                          <option value="3–5 Rooms">3–5 Rooms</option>
+                          <option value="10–25 Rooms (Group)">10–25 Rooms</option>
+                          <option value="25–125 Rooms (Estate Block)">25–125 Rooms</option>
+                        </select>
+                      </div>
+
+                      <div className="bg-[#FBF9F6] border border-[#DFDBD2] px-3.5 py-2.5">
+                        <label
+                          htmlFor="stayGuests"
+                          className="block text-[10px] tracking-[0.16em] uppercase text-[#AD8B3A] font-semibold mb-1"
+                        >
+                          Occupancy
+                        </label>
+                        <select
+                          id="stayGuests"
+                          value={stayOccupancy}
+                          onChange={(e) => setStayOccupancy(e.target.value)}
+                          className="w-full bg-transparent text-xs sm:text-sm text-[#292826] focus:outline-none"
+                        >
+                          <option value="2 Adults">2 Adults</option>
+                          <option value="2 Adults + Children">
+                            Family (2 Adults + Children)
+                          </option>
+                          <option value="3–4 Adults">3–4 Adults</option>
+                          <option value="Group Contingent">
+                            Family / Group Contingent
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+                      <span className="text-xs text-[#6E6A63] italic">
+                        Direct tariff confirmation with no intermediary booking fees
+                      </span>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <a
+                          href={stayEmailHref}
+                          className="px-5 py-3 border border-[#AD8B3A] text-[#AD8B3A] hover:bg-[#FBF9F6] text-xs tracking-[0.14em] uppercase font-semibold transition-colors whitespace-nowrap"
+                        >
+                          Enquire via Email
+                        </a>
+                        <a
+                          href={buildWhatsAppUrl(quickBookingWhatsAppText)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-6 py-3 bg-[#AD8B3A] hover:bg-[#96772E] text-white text-xs tracking-[0.14em] uppercase font-semibold transition-colors whitespace-nowrap"
+                        >
+                          <MessageCircle className="w-4 h-4" />
+                          <span>Check Availability via WhatsApp</span>
+                        </a>
+                      </div>
+                    </div>
+                  </form>
+                ) : (
+                  /* TAB 2: WEDDING & EVENT ENQUIRY FORM */
+                  <form
+                    onSubmit={(e) => e.preventDefault()}
+                    className="pt-6 space-y-5"
+                  >
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+                      <div className="bg-[#FBF9F6] border border-[#DFDBD2] px-3.5 py-2.5">
+                        <label
+                          htmlFor="eventContactName"
+                          className="block text-[10px] tracking-[0.16em] uppercase text-[#AD8B3A] font-semibold mb-1"
+                        >
+                          Host / Family Name
+                        </label>
+                        <input
+                          id="eventContactName"
+                          type="text"
+                          value={eventHostName}
+                          onChange={(e) => setEventHostName(e.target.value)}
+                          placeholder="Host or Planner Name"
+                          className="w-full bg-transparent text-xs sm:text-sm text-[#292826] placeholder:text-[#9A958C] focus:outline-none"
+                        />
+                      </div>
+
+                      <div className="bg-[#FBF9F6] border border-[#DFDBD2] px-3.5 py-2.5">
+                        <label
+                          htmlFor="eventType"
+                          className="block text-[10px] tracking-[0.16em] uppercase text-[#AD8B3A] font-semibold mb-1"
+                        >
+                          Occasion
+                        </label>
+                        <select
+                          id="eventType"
+                          value={eventOccasion}
+                          onChange={(e) => setEventOccasion(e.target.value)}
+                          className="w-full bg-transparent text-xs sm:text-sm text-[#292826] focus:outline-none"
+                        >
+                          <option value="3-Day Full Estate Wedding Buyout (125 Rooms)">
+                            3-Day Full Estate Buyout (125 Rooms)
+                          </option>
+                          <option value="2-Day Partial Buyout / All-Season Wedding">
+                            2-Day Partial Buyout (~60 Rooms)
+                          </option>
+                          <option value="Grand Lawn Reception / Sangeet / Sagai">
+                            Grand Lawn Reception / Sangeet
+                          </option>
+                          <option value="Family Milestone Celebration">
+                            Family Milestone Celebration
+                          </option>
+                          <option value="Corporate Convention / Offsite">
+                            Corporate Convention / Offsite
+                          </option>
+                        </select>
+                      </div>
+
+                      <div className="bg-[#FBF9F6] border border-[#DFDBD2] px-3.5 py-2.5">
+                        <label
+                          htmlFor="eventDate"
+                          className="block text-[10px] tracking-[0.16em] uppercase text-[#AD8B3A] font-semibold mb-1"
+                        >
+                          Preferred Date
+                        </label>
+                        <input
+                          id="eventDate"
+                          type="date"
+                          value={eventPreferredDate}
+                          onChange={(e) => setEventPreferredDate(e.target.value)}
+                          className="w-full bg-transparent text-xs sm:text-sm font-mono-tabular text-[#292826] focus:outline-none"
+                        />
+                      </div>
+
+                      <div className="bg-[#FBF9F6] border border-[#DFDBD2] px-3.5 py-2.5">
+                        <label
+                          htmlFor="eventGuests"
+                          className="block text-[10px] tracking-[0.16em] uppercase text-[#AD8B3A] font-semibold mb-1"
+                        >
+                          Gathering Size
+                        </label>
+                        <select
+                          id="eventGuests"
+                          value={eventGatheringSize}
+                          onChange={(e) => setEventGatheringSize(e.target.value)}
+                          className="w-full bg-transparent text-xs sm:text-sm text-[#292826] focus:outline-none"
+                        >
+                          <option value="100–250 Guests">100–250 Guests</option>
+                          <option value="250–500 Guests">250–500 Guests</option>
+                          <option value="500–1,000 Guests">500–1,000 Guests</option>
+                          <option value="1,000+ Guests (Grand Lawn)">1,000+ Guests</option>
+                        </select>
+                      </div>
+
+                      <div className="sm:col-span-2 bg-[#FBF9F6] border border-[#DFDBD2] px-3.5 py-2.5">
+                        <label
+                          htmlFor="eventRooms"
+                          className="block text-[10px] tracking-[0.16em] uppercase text-[#AD8B3A] font-semibold mb-1"
+                        >
+                          Venue &amp; Residence Configuration
+                        </label>
+                        <select
+                          id="eventRooms"
+                          value={eventVenueConfig}
+                          onChange={(e) => setEventVenueConfig(e.target.value)}
+                          className="w-full bg-transparent text-xs sm:text-sm text-[#292826] focus:outline-none"
+                        >
+                          <option value="Full 125-Room Estate Buyout + Lawn + Banquets + Pool">
+                            Full 125-Room Buyout + Lawn + Banquets + Pool
+                          </option>
+                          <option value="50–80 Rooms + Banquet & Lawn">
+                            50–80 Rooms + Banquet &amp; Lawn
+                          </option>
+                          <option value="Standalone Banquet Hall / Evening Lawn (Non-Muhurat Dates)">
+                            Standalone Banquet / Lawn (Non-Muhurat Dates)
+                          </option>
+                          <option value="Venue + 10–30 Guest Rooms">
+                            Venue + 10–30 Guest Rooms
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
+                      <span className="text-xs text-[#6E6A63] italic">
+                        Private walkthroughs and bespoke buyout proposals arranged upon request
+                      </span>
+                      <div className="flex flex-wrap items-center gap-3">
+                        <a
+                          href={eventEmailHref}
+                          className="px-5 py-3 border border-[#AD8B3A] text-[#AD8B3A] hover:bg-[#FBF9F6] text-xs tracking-[0.14em] uppercase font-semibold transition-colors whitespace-nowrap"
+                        >
+                          Email Event Desk
+                        </a>
+                        <a
+                          href={buildWhatsAppUrl(eventWhatsAppText)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-6 py-3 bg-[#AD8B3A] hover:bg-[#96772E] text-white text-xs tracking-[0.14em] uppercase font-semibold transition-colors whitespace-nowrap"
+                        >
+                          <MessageCircle className="w-4 h-4" />
+                          <span>Request Proposal via WhatsApp</span>
+                        </a>
+                      </div>
+                    </div>
+                  </form>
+                )}
+              </div>
+
+              {/* 4-Column Architectural Figures Ledger from karniresort.com */}
+              <div className="bg-[#917C58] text-white border-t border-[#AD8B3A]/40">
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/20">
+                  <div className="py-5 sm:px-5 first:sm:pl-0">
+                    <p className="text-[10px] tracking-[0.2em] uppercase text-[#F5DF9E] font-semibold">
+                      The Residence
+                    </p>
+                    <p className="font-serif-royal text-2xl sm:text-3xl font-normal text-white mt-0.5">
+                      125 Rooms &amp; Suites
+                    </p>
+                    <p className="text-xs text-white/85 mt-1 leading-relaxed">
+                      Accommodating entire wedding entourages under one roof
+                    </p>
+                  </div>
+
+                  <div className="py-5 sm:px-5">
+                    <p className="text-[10px] tracking-[0.2em] uppercase text-[#F5DF9E] font-semibold">
+                      Celebration Spaces
+                    </p>
+                    <p className="font-serif-royal text-2xl sm:text-3xl font-normal text-white mt-0.5">
+                      Grand Lawn &amp; 2 Halls
+                    </p>
+                    <p className="text-xs text-white/85 mt-1 leading-relaxed">
+                      Illuminated sandstone courtyard and climate-controlled banquets
+                    </p>
+                  </div>
+
+                  <div className="py-5 sm:px-5">
+                    <p className="text-[10px] tracking-[0.2em] uppercase text-[#F5DF9E] font-semibold">
+                      Leisure &amp; Dining
+                    </p>
+                    <p className="font-serif-royal text-2xl sm:text-3xl font-normal text-white mt-0.5">
+                      Pool &amp; Fine Dining
+                    </p>
+                    <p className="text-xs text-white/85 mt-1 leading-relaxed">
+                      Outdoor swimming pool deck and multi-cuisine restaurant
+                    </p>
+                  </div>
+
+                  <div className="py-5 sm:px-5 last:sm:pr-0">
+                    <p className="text-[10px] tracking-[0.2em] uppercase text-[#F5DF9E] font-semibold">
+                      Guest Distinction
+                    </p>
+                    <p className="font-serif-royal text-2xl sm:text-3xl font-normal text-white mt-0.5">
+                      4.2 / 5 Rating
+                    </p>
+                    <p className="text-xs text-white/85 mt-1 leading-relaxed">
+                      Celebrated across more than 780 verified guest reviews
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             {/* Editorial Overview & Founders Lineage from karniresort.com */}
             <section className="py-16 sm:py-24 bg-[#FBF9F6] border-b border-[#E6E3DD]">
               <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
