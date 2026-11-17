@@ -70,27 +70,27 @@ Please confirm availability and royal tariff details.`;
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[#3D3122]/75 backdrop-blur-sm p-4 sm:p-6 overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/75 backdrop-blur-sm p-4 sm:p-6 overflow-y-auto"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-suite-title"
     >
-      <div className="relative w-full max-w-4xl bg-[#FAF6F0] border border-[#D8C7B2] rounded-xl shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
+      <div className="relative w-full max-w-4xl bg-[#FBF9F6] border border-[#AD8B3A] shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col">
         {/* Top Modal Header */}
-        <div className="flex items-center justify-between px-6 py-4 bg-[#917C58] text-[#FAF6F0] border-b border-[#7D6949]">
+        <div className="flex items-center justify-between px-6 py-4 bg-[#1C1B19] text-white border-b border-[#AD8B3A]">
           <div className="flex items-center gap-3.5">
-            <div className="w-11 h-11 rounded-lg bg-[#FAF6F0] border border-[#DECBB3] overflow-hidden flex items-center justify-center shrink-0 shadow-sm">
+            <div className="w-12 h-12 rounded-full bg-white border border-[#AD8B3A] overflow-hidden flex items-center justify-center shrink-0 shadow-sm">
               <img
                 src={RESORT_IMAGES.logo}
                 alt="Sri Karni Heritage Resort Royal Crest"
-                className="w-full h-full object-contain scale-[1.35] mix-blend-multiply"
+                className="w-full h-full object-cover scale-[1.02]"
               />
             </div>
             <div>
-              <p className="text-xs text-[#FFF3D1] tracking-wide">
+              <p className="text-[11px] uppercase tracking-[0.16em] text-[#E5C878]">
                 {room.categoryLabel} · {room.hindiTitle}
               </p>
-              <h2 id="modal-suite-title" className="font-serif-royal text-2xl sm:text-3xl font-semibold text-[#FAF6F0]">
+              <h2 id="modal-suite-title" className="font-serif-royal text-2xl sm:text-3xl font-normal text-white">
                 {room.name}
               </h2>
             </div>
@@ -99,7 +99,7 @@ Please confirm availability and royal tariff details.`;
             type="button"
             onClick={onClose}
             aria-label="Close room details"
-            className="p-2 text-[#FAF6F0] hover:text-white rounded-lg hover:bg-white/15 transition-colors cursor-pointer"
+            className="p-2 text-white/80 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -110,20 +110,20 @@ Please confirm availability and royal tariff details.`;
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* Left Column: Visuals & Architectural Notes */}
             <div className="lg:col-span-7 space-y-4">
-              <div className="relative aspect-[4/3] w-full rounded-lg overflow-hidden bg-[#917C58]">
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#1C1B19]">
                 <ResilientImage
                   src={photos[activePhotoIndex]}
                   alt={`${room.name} view ${activePhotoIndex + 1}`}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-3 right-3 flex items-center gap-2 bg-[#917C58]/90 backdrop-blur-sm p-1 rounded-md border border-[#FAF6F0]/30">
+                <div className="absolute bottom-3 right-3 flex items-center gap-1 bg-black/80 backdrop-blur-sm p-1 border border-[#AD8B3A]/60">
                   <button
                     type="button"
                     onClick={() => setActivePhotoIndex(0)}
-                    className={`px-3 py-1 text-xs font-medium rounded transition-colors cursor-pointer whitespace-nowrap ${
+                    className={`px-3 py-1 text-[11px] uppercase tracking-wider font-medium transition-colors cursor-pointer whitespace-nowrap ${
                       activePhotoIndex === 0
-                        ? 'bg-[#FAF6F0] text-[#5C4B32]'
-                        : 'text-[#FAF6F0] hover:bg-white/10'
+                        ? 'bg-[#AD8B3A] text-white'
+                        : 'text-white/80 hover:text-white'
                     }`}
                   >
                     Suite Chamber
@@ -131,10 +131,10 @@ Please confirm availability and royal tariff details.`;
                   <button
                     type="button"
                     onClick={() => setActivePhotoIndex(1)}
-                    className={`px-3 py-1 text-xs font-medium rounded transition-colors cursor-pointer whitespace-nowrap ${
+                    className={`px-3 py-1 text-[11px] uppercase tracking-wider font-medium transition-colors cursor-pointer whitespace-nowrap ${
                       activePhotoIndex === 1
-                        ? 'bg-[#FAF6F0] text-[#5C4B32]'
-                        : 'text-[#FAF6F0] hover:bg-white/10'
+                        ? 'bg-[#AD8B3A] text-white'
+                        : 'text-white/80 hover:text-white'
                     }`}
                   >
                     Estate View
